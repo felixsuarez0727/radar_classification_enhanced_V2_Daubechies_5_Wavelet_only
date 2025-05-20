@@ -1,0 +1,138 @@
+{
+    "accuracy": 0.9547368884086609,
+    "loss": 0.22639641165733337,
+    "confusion_matrix": [
+        [
+            10881,
+            84,
+            44,
+            546,
+            0,
+            0,
+            0
+        ],
+        [
+            6,
+            3810,
+            28,
+            6,
+            1,
+            0,
+            0
+        ],
+        [
+            0,
+            1,
+            3797,
+            53,
+            0,
+            0,
+            0
+        ],
+        [
+            291,
+            31,
+            453,
+            3076,
+            0,
+            1,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            3841,
+            0,
+            11
+        ],
+        [
+            0,
+            3,
+            0,
+            4,
+            0,
+            3845,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            6,
+            0,
+            3845
+        ]
+    ],
+    "classification_report": {
+        "AM_combined": {
+            "precision": 0.9734299516908212,
+            "recall": 0.9416702726092601,
+            "f1-score": 0.9572867637355387,
+            "support": 11555.0
+        },
+        "BPSK_SATCOM": {
+            "precision": 0.9697123950114533,
+            "recall": 0.9893534146974812,
+            "f1-score": 0.9794344473007712,
+            "support": 3851.0
+        },
+        "FMCW_Radar Altimeter": {
+            "precision": 0.8785284590467376,
+            "recall": 0.9859776681381459,
+            "f1-score": 0.929156980300991,
+            "support": 3851.0
+        },
+        "PULSED_Air-Ground-MTI": {
+            "precision": 0.8347354138398915,
+            "recall": 0.7985462097611631,
+            "f1-score": 0.8162398832426695,
+            "support": 3852.0
+        },
+        "PULSED_Airborne-detection": {
+            "precision": 0.9981808731808732,
+            "recall": 0.9971443406022845,
+            "f1-score": 0.9976623376623377,
+            "support": 3852.0
+        },
+        "PULSED_Airborne-range": {
+            "precision": 0.999739989599584,
+            "recall": 0.9981827622014537,
+            "f1-score": 0.9989607690309171,
+            "support": 3852.0
+        },
+        "PULSED_Ground mapping": {
+            "precision": 0.9971473029045643,
+            "recall": 0.9984419631264606,
+            "f1-score": 0.9977942130530686,
+            "support": 3851.0
+        },
+        "accuracy": 0.9547369028386798,
+        "macro avg": {
+            "precision": 0.9502106264677037,
+            "recall": 0.9584738044480356,
+            "f1-score": 0.9537907706180421,
+            "support": 34664.0
+        },
+        "weighted avg": {
+            "precision": 0.9553705533635066,
+            "recall": 0.9547369028386798,
+            "f1-score": 0.9545663482102204,
+            "support": 34664.0
+        }
+    },
+    "history": "<keras.src.callbacks.history.History object at 0x165878910>",
+    "execution_time": 111.55021476745605,
+    "model_path": "results/models/final_model.h5",
+    "class_names": [
+        "AM_combined",
+        "BPSK_SATCOM",
+        "FMCW_Radar Altimeter",
+        "PULSED_Air-Ground-MTI",
+        "PULSED_Airborne-detection",
+        "PULSED_Airborne-range",
+        "PULSED_Ground mapping"
+    ]
+}

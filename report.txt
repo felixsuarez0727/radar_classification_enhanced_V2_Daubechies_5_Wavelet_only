@@ -1,0 +1,100 @@
+REPORTE DE CLASIFICACIÓN DE SEÑALES DE RADAR 5
+===========================================
+
+1. INTRODUCCIÓN
+--------------
+Este proyecto implementa un sistema de clasificación de señales de radar utilizando una red neuronal densa (DNN) con características de wavelets Daubechies 5. El objetivo es clasificar diferentes tipos de señales de radar con alta precisión.
+
+2. IMPLEMENTACIÓN
+----------------
+2.1 Preprocesamiento de Datos
+- Implementación de transformada wavelet Daubechies 5
+- Extracción de características de wavelets
+- Normalización de datos
+- División de datos en conjuntos de entrenamiento, validación y prueba
+
+2.2 Arquitectura del Modelo
+- Red neuronal densa con 3 capas
+- Capa 1: 128 neuronas + BatchNorm + Dropout
+- Capa 2: 64 neuronas + BatchNorm + Dropout
+- Capa de salida: 7 neuronas (una por clase)
+- Total de parámetros: 45,447
+
+2.3 Configuración del Entrenamiento
+- Dataset: RadComOta2.45GHz.hdf5
+- Porcentaje de datos utilizados: 31.7%
+- Muestras por clase: 25,677
+- Épocas: 30
+- Batch size: 64
+- Optimizador: Adam con learning rate adaptativo
+- Early stopping implementado
+- Pesos de clase para manejar desbalance
+
+3. DISTRIBUCIÓN DE DATOS
+------------------------
+Total de muestras por clase:
+- AM_combined: 77,031 muestras
+- BPSK_SATCOM: 25,677 muestras
+- FMCW_Radar Altimeter: 25,677 muestras
+- PULSED_Air-Ground-MTI: 25,677 muestras
+- PULSED_Airborne-detection: 25,677 muestras
+- PULSED_Airborne-range: 25,677 muestras
+- PULSED_Ground mapping: 25,677 muestras
+
+División de datos:
+- Conjunto de entrenamiento: 161,765 muestras
+- Conjunto de validación: 34,664 muestras
+- Conjunto de prueba: 34,664 muestras
+
+4. RESULTADOS
+------------
+4.1 Rendimiento General
+- Precisión final en test: 95.47%
+- Tiempo total de ejecución: 41.5 minutos
+
+4.2 Rendimiento por Clase
+- Precisión en señales AM: 94.17%
+- Recall en señales AM: 94.17%
+
+4.3 Análisis de Confusiones
+- Se identificaron 291 señales de tipo PULSED_Air-Ground-MTI clasificadas incorrectamente como AM_combined
+- Las confusiones se guardaron en results/plots/confused_signals
+
+4.4 Curva de Aprendizaje
+- Convergencia rápida: 82.13% de precisión en la primera época
+- Mejora constante hasta la época 24
+- Reducción del learning rate en la época 24
+- Mejora final en las últimas épocas
+
+5. CONCLUSIONES
+--------------
+5.1 Logros
+- Alta precisión general (95.47%)
+- Buen rendimiento en señales AM (94.17%)
+- Convergencia rápida y estable
+- Manejo efectivo del desbalance de clases
+
+5.2 Áreas de Mejora
+- Investigar confusiones entre PULSED_Air-Ground-MTI y AM_combined
+- Considerar técnicas de data augmentation
+- Experimentar con arquitecturas más complejas
+- Implementar técnicas de regularización adicionales
+
+6. RECURSOS GENERADOS
+--------------------
+- Modelo guardado: results/models/final_model.h5
+- Métricas de entrenamiento: results/logs/training_results.json
+- Métricas de señales AM: results/logs/am_results.json
+- Gráficos de distribución: results/plots/train_test_distribution.png
+- Ejemplos de confusiones: results/plots/confused_signals
+
+7. RECOMENDACIONES FUTURAS
+-------------------------
+1. Implementar técnicas de data augmentation para mejorar el rendimiento en clases minoritarias
+2. Investigar arquitecturas más profundas o convolucionales
+3. Experimentar con diferentes tipos de wavelets
+4. Implementar técnicas de interpretabilidad para entender mejor las decisiones del modelo
+5. Realizar un análisis más detallado de las señales confundidas
+
+===========================================
+Fin del Reporte 

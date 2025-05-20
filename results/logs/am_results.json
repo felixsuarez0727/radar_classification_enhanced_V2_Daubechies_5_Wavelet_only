@@ -1,0 +1,46 @@
+{
+    "accuracy": 0.9416702726092601,
+    "recall": 0.9416702726092601,
+    "am_count": 11555,
+    "correctly_classified": 10881,
+    "incorrectly_classified": 674,
+    "classification_report": {
+        "AM_combined": {
+            "precision": 1.0,
+            "recall": 0.9416702726092601,
+            "f1-score": 0.9699589944731681,
+            "support": 11555.0
+        },
+        "BPSK_SATCOM": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+        },
+        "FMCW_Radar Altimeter": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+        },
+        "PULSED_Air-Ground-MTI": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+        },
+        "accuracy": 0.9416702726092601,
+        "macro avg": {
+            "precision": 0.25,
+            "recall": 0.23541756815231502,
+            "f1-score": 0.24248974861829203,
+            "support": 11555.0
+        },
+        "weighted avg": {
+            "precision": 1.0,
+            "recall": 0.9416702726092601,
+            "f1-score": 0.969958994473168,
+            "support": 11555.0
+        }
+    }
+}

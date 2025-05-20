@@ -1,0 +1,135 @@
+2025-05-20 09:37:52 - main - INFO - Radar Signal Classification
+2025-05-20 09:37:52 - main - INFO - ==================================================
+2025-05-20 09:37:52 - main - INFO - Training Dataset: /Users/jaimearevalo/Library/CloudStorage/OneDrive-UniversidaddeSanBuenaventura-Bogota/RadComOta2.45GHz.hdf5
+2025-05-20 09:37:52 - main - INFO - Testing Dataset: Split from training
+2025-05-20 09:37:52 - main - INFO - Data Percentage: 0.317
+2025-05-20 09:37:52 - main - INFO - Samples Per Class: 25677
+2025-05-20 09:37:52 - main - INFO - Combine AM Signals: True
+2025-05-20 09:37:52 - main - INFO - Model Type: tf
+2025-05-20 09:37:52 - main - INFO - Epochs: 30
+2025-05-20 09:37:52 - main - INFO - Batch Size: 64
+2025-05-20 09:37:52 - main - INFO - Cross Validation: False
+2025-05-20 09:37:52 - main - INFO - Use Class Weights: True
+2025-05-20 09:37:52 - main - INFO - Use Early Stopping: True
+2025-05-20 09:37:52 - main - INFO - ==================================================
+2025-05-20 09:37:52 - main - INFO - Initializing data loader...
+2025-05-20 09:37:52 - main - INFO - Loading and preprocessing data...
+2025-05-20 09:37:52 - src.data_loader - INFO - Loading data from /Users/jaimearevalo/Library/CloudStorage/OneDrive-UniversidaddeSanBuenaventura-Bogota/RadComOta2.45GHz.hdf5
+2025-05-20 09:38:00 - src.data_loader - INFO - Total keys in the HDF5 file: 567000
+2025-05-20 10:17:30 - src.data_loader - INFO - Class distribution: {np.str_('AM_combined'): np.int64(77031), np.str_('BPSK_SATCOM'): np.int64(25677), np.str_('FMCW_Radar Altimeter'): np.int64(25677), np.str_('PULSED_Air-Ground-MTI'): np.int64(25677), np.str_('PULSED_Airborne-detection'): np.int64(25677), np.str_('PULSED_Airborne-range'): np.int64(25677), np.str_('PULSED_Ground mapping'): np.int64(25677)}
+2025-05-20 10:17:31 - src.data_loader - INFO - Splitting data into train, validation and test sets
+2025-05-20 10:17:31 - src.data_loader - INFO - X_train shape: (161765, 280)
+2025-05-20 10:17:31 - src.data_loader - INFO - X_val shape: (34664, 280)
+2025-05-20 10:17:31 - src.data_loader - INFO - X_test shape: (34664, 280)
+2025-05-20 10:17:31 - src.data_loader - INFO - Number of classes: 7
+2025-05-20 10:17:31 - src.data_loader - INFO - Class names: ['AM_combined' 'BPSK_SATCOM' 'FMCW_Radar Altimeter'
+ 'PULSED_Air-Ground-MTI' 'PULSED_Airborne-detection'
+ 'PULSED_Airborne-range' 'PULSED_Ground mapping']
+2025-05-20 10:17:32 - main - INFO - X_train shape: (161765, 280)
+2025-05-20 10:17:32 - main - INFO - X_val shape: (34664, 280)
+2025-05-20 10:17:32 - main - INFO - X_test shape: (34664, 280)
+2025-05-20 10:17:32 - main - INFO - Number of classes: 7
+2025-05-20 10:17:32 - main - INFO - Plotting class distributions...
+2025-05-20 10:17:33 - src.utils - INFO - Train/test distribution comparison plot saved to results/plots/train_test_distribution.png
+2025-05-20 10:17:33 - main - INFO - Initializing model trainer...
+2025-05-20 10:17:33 - main - INFO - Training single model...
+2025-05-20 10:17:33 - src.train - INFO - Training data: (161765, 280), (161765,)
+2025-05-20 10:17:33 - src.train - INFO - Validation data: (34664, 280), (34664,)
+2025-05-20 10:17:33 - src.train - INFO - Testing data: (34664, 280), (34664,)
+2025-05-20 10:17:33 - src.train - INFO - Creating model...
+2025-05-20 10:17:33 - src.model - INFO - Model: "sequential"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ dense (Dense)                        │ (None, 128)                 │          35,968 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization                  │ (None, 128)                 │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 128)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_1 (Dense)                      │ (None, 64)                  │           8,256 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_1                │ (None, 64)                  │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_1 (Dropout)                  │ (None, 64)                  │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_2 (Dense)                      │ (None, 7)                   │             455 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 45,447 (177.53 KB)
+ Trainable params: 45,063 (176.03 KB)
+ Non-trainable params: 384 (1.50 KB)
+
+2025-05-20 10:17:33 - src.train - INFO - Training model for 30 epochs with batch size 64
+2025-05-20 10:17:33 - src.model - WARNING - Could not increase weight for critical classes: 'PULSED_Air-Ground-MTI' is not in list
+2025-05-20 10:17:33 - src.model - INFO - Class weights: {0: np.float64(0.4285767273286051), 1: np.float64(1.2857063377259215), 2: np.float64(1.2857063377259215), 3: np.float64(1.2857063377259215), 4: np.float64(1.2857063377259215), 5: np.float64(1.2857063377259215), 6: np.float64(1.2857063377259215)}
+2025-05-20 10:17:33 - src.model - INFO - Starting training for 30 epochs with batch size 64
+2025-05-20 10:19:23 - src.train - INFO - Evaluating model on test data
+2025-05-20 10:19:23 - src.model - INFO - Evaluating model on test data
+2025-05-20 10:19:24 - src.train - INFO - Test accuracy: 0.9547
+2025-05-20 10:19:24 - src.model - INFO - Model saved to results/models/final_model.h5
+2025-05-20 10:19:25 - src.train - INFO - Training completed in 111.55 seconds
+2025-05-20 10:19:25 - main - INFO - Test accuracy: 0.9547
+2025-05-20 10:19:25 - src.utils - INFO - Metrics saved to results/logs/training_results.json
+2025-05-20 10:19:25 - main - INFO - Analyzing AM signals specifically...
+2025-05-20 10:19:25 - src.model - INFO - Model: "sequential_1"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ dense_3 (Dense)                      │ (None, 128)                 │          35,968 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_2                │ (None, 128)                 │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_2 (Dropout)                  │ (None, 128)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_4 (Dense)                      │ (None, 64)                  │           8,256 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_3                │ (None, 64)                  │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_3 (Dropout)                  │ (None, 64)                  │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_5 (Dense)                      │ (None, 7)                   │             455 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 45,447 (177.53 KB)
+ Trainable params: 45,063 (176.03 KB)
+ Non-trainable params: 384 (1.50 KB)
+
+2025-05-20 10:19:25 - src.model - INFO - Model loaded from results/models/final_model.h5
+2025-05-20 10:19:25 - src.train - INFO - AM Signal Analysis:
+2025-05-20 10:19:25 - src.train - INFO -   Number of AM signals: 11555
+2025-05-20 10:19:25 - src.train - INFO -   Accuracy on AM signals: 0.9417
+2025-05-20 10:19:25 - src.train - INFO -   Recall on AM signals: 0.9417
+2025-05-20 10:19:25 - main - INFO - AM accuracy: 0.9417
+2025-05-20 10:19:25 - main - INFO - AM recall: 0.9417
+2025-05-20 10:19:25 - src.utils - INFO - Metrics saved to results/logs/am_results.json
+2025-05-20 10:19:25 - main - INFO - Analizando confusiones PULSED_Air-Ground-MTI -> AM_combined...
+2025-05-20 10:19:25 - src.model - INFO - Model: "sequential_2"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ dense_6 (Dense)                      │ (None, 128)                 │          35,968 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_4                │ (None, 128)                 │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_4 (Dropout)                  │ (None, 128)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_7 (Dense)                      │ (None, 64)                  │           8,256 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_5                │ (None, 64)                  │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_5 (Dropout)                  │ (None, 64)                  │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_8 (Dense)                      │ (None, 7)                   │             455 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 45,447 (177.53 KB)
+ Trainable params: 45,063 (176.03 KB)
+ Non-trainable params: 384 (1.50 KB)
+
+2025-05-20 10:19:25 - src.model - INFO - Model loaded from results/models/final_model.h5
+2025-05-20 10:19:25 - src.train - INFO - Found 291 PULSED_Air-Ground-MTI signals classified as AM_combined.
+2025-05-20 10:19:26 - main - INFO - Total execution time: 2493.62 seconds
