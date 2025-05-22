@@ -1,6 +1,6 @@
 2025-05-20 09:37:52 - main - INFO - Radar Signal Classification
 2025-05-20 09:37:52 - main - INFO - ==================================================
-2025-05-20 09:37:52 - main - INFO - Training Dataset: /Users/jaimearevalo/Library/CloudStorage/OneDrive-UniversidaddeSanBuenaventura-Bogota/RadComOta2.45GHz.hdf5
+2025-05-20 09:37:52 - main - INFO - Training Dataset: /Users/felixsuarez/Library/CloudStorage/OneDrive-UniversidaddeSanBuenaventura-Bogota/RadComOta2.45GHz.hdf5
 2025-05-20 09:37:52 - main - INFO - Testing Dataset: Split from training
 2025-05-20 09:37:52 - main - INFO - Data Percentage: 0.317
 2025-05-20 09:37:52 - main - INFO - Samples Per Class: 25677
@@ -14,7 +14,7 @@
 2025-05-20 09:37:52 - main - INFO - ==================================================
 2025-05-20 09:37:52 - main - INFO - Initializing data loader...
 2025-05-20 09:37:52 - main - INFO - Loading and preprocessing data...
-2025-05-20 09:37:52 - src.data_loader - INFO - Loading data from /Users/jaimearevalo/Library/CloudStorage/OneDrive-UniversidaddeSanBuenaventura-Bogota/RadComOta2.45GHz.hdf5
+2025-05-20 09:37:52 - src.data_loader - INFO - Loading data from /Users/felixsuarez/Library/CloudStorage/OneDrive-UniversidaddeSanBuenaventura-Bogota/RadComOta2.45GHz.hdf5
 2025-05-20 09:38:00 - src.data_loader - INFO - Total keys in the HDF5 file: 567000
 2025-05-20 10:17:30 - src.data_loader - INFO - Class distribution: {np.str_('AM_combined'): np.int64(77031), np.str_('BPSK_SATCOM'): np.int64(25677), np.str_('FMCW_Radar Altimeter'): np.int64(25677), np.str_('PULSED_Air-Ground-MTI'): np.int64(25677), np.str_('PULSED_Airborne-detection'): np.int64(25677), np.str_('PULSED_Airborne-range'): np.int64(25677), np.str_('PULSED_Ground mapping'): np.int64(25677)}
 2025-05-20 10:17:31 - src.data_loader - INFO - Splitting data into train, validation and test sets
