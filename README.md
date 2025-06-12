@@ -112,3 +112,4 @@ The model achieves high accuracy across most signal types, with particular stren
 4. Add real-time signal processing capabilities
 
 ## License
+MIT License
